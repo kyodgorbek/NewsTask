@@ -13,7 +13,6 @@ import com.yodgorbek.newstask.domain.utils.fold
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@RequiresApi(Build.VERSION_CODES.N)
 class BBCNewsViewModel(private val useCase: BBCNewsResponseUseCase) : ViewModel() {
 
 
@@ -27,17 +26,18 @@ class BBCNewsViewModel(private val useCase: BBCNewsResponseUseCase) : ViewModel(
 init{
     getNews()
 }
-    @RequiresApi(Build.VERSION_CODES.N)
+
     private fun getNews() {
         viewModelScope.launch(Dispatchers.IO) {
   progress.postValue(true)
             useCase.invoke()
                 .fold({ newsResponse ->
                     news.postValue(newsResponse)
+                    progress.postValue(false)
                 }, {
                     error.postValue(it.message)
                 })
-            progress.postValue(false)
+
         }
     }
 

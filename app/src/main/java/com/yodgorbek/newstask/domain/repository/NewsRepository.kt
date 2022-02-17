@@ -12,7 +12,7 @@ class NewsRepository(
    private val apiInterface:NewsInterface
 ){
 
-@RequiresApi(Build.VERSION_CODES.N)
+
 suspend fun getNews() : Result<NewsResponse>{
    return try {
        val response = apiInterface.getNews()
