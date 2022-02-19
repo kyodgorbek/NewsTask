@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
     private var dataBinding: DB? = null
 
-    private val binding: DB
+    val binding: DB
         get() = dataBinding!!
 
     protected abstract val layoutId: Int

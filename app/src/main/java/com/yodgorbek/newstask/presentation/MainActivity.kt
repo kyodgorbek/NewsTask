@@ -1,4 +1,4 @@
-package com.example.newsworldwide.presentation
+package com.yodgorbek.newstask.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

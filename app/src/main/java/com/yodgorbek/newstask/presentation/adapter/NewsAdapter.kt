@@ -52,6 +52,7 @@ class NewsAdapter(private val onClick: (Article) -> Unit): RecyclerView.Adapter<
                 itemBinding.articleDate.text = it.userFormat()
             }
 
+            itemBinding.articleAuthor.text = articles.author
             itemBinding.article = articles
 
         }

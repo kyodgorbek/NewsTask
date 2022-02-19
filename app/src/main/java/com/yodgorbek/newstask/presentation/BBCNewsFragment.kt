@@ -15,8 +15,8 @@ import com.yodgorbek.newstask.presentation.viewmodel.BBCNewsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class BBCNewsFragment : Fragment(R.layout.bbcnews_fragment) {
-
+class BBCNewsFragment : BaseFragment<BbcnewsFragmentBinding>() {
+    override val layoutId: Int = R.layout.bbcnews_fragment
     private val viewModel by viewModel<BBCNewsViewModel>()
     private val adapter = NewsAdapter() { article ->
         findNavController().navigate(
@@ -24,15 +24,13 @@ class BBCNewsFragment : Fragment(R.layout.bbcnews_fragment) {
         )
     }
 
-    private var _binding: BbcnewsFragmentBinding? = null
+
 
     // with the backing property of the kotlin we extract
     // the non null value of the _binding
-    private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = BbcnewsFragmentBinding.inflate(layoutInflater)
         //Add adapter in recyclerView
         binding.recyclerView.adapter = adapter
 

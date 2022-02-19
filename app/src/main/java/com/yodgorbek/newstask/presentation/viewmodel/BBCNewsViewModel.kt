@@ -28,16 +28,17 @@ init{
 }
 
     private fun getNews() {
+        progress.postValue(true)
         viewModelScope.launch(Dispatchers.IO) {
-  progress.postValue(true)
+
             useCase.invoke()
                 .fold({ newsResponse ->
                     news.postValue(newsResponse)
-                    progress.postValue(false)
+
                 }, {
                     error.postValue(it.message)
                 })
-
+            progress.postValue(false)
         }
     }
 

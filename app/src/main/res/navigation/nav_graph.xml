@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.yodgorbek.newstask.presentation.DetailFragment"
+        android:name="com.yodgorbek.newstask.presentation."
         android:label="DetailFragment" >
     <argument
         android:name="article"
