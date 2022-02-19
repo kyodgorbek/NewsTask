@@ -10,7 +10,7 @@ fun String.parseDate(): Date? {
 }
 
 fun Date.userFormat(): String {
-    val df = SimpleDateFormat("dd/MM/yyyy", Locale.US)
+    val df = SimpleDateFormat("dd/MM/yyyy/", Locale.US)
 
 
     return df.format(this)
