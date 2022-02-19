@@ -8,5 +8,6 @@ class BBCNewsResponseUseCase(
     private val newsRepository: NewsRepository
 ) {
 
+     @RequiresApi(Build.VERSION_CODES.N)
      suspend operator fun invoke() = newsRepository.getNews()
 }

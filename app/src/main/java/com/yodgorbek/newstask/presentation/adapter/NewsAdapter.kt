@@ -1,5 +1,6 @@
 package com.yodgorbek.newstask.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -11,7 +12,7 @@ import com.yodgorbek.newstask.domain.utils.parseDate
 import com.yodgorbek.newstask.domain.utils.userFormat
 import com.yodgorbek.newstask.model.Article
 
-class NewsAdapter(private val onClick: (Article) -> Unit): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun getItemCount(): Int {
         return differ.currentList.size
@@ -40,7 +41,6 @@ class NewsAdapter(private val onClick: (Article) -> Unit): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         var articleItems = differ.currentList[position]
         holder.bind(articleItems)
-        holder.itemView.setOnClickListener { onClick(articleItems) }
 
     }
 

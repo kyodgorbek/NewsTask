@@ -4,11 +4,9 @@ package com.yodgorbek.newstask.di
 import android.content.Context
 import com.yodgorbek.newstask.domain.repository.NewsRepository
 import com.yodgorbek.newstask.domain.use_case.BBCNewsResponseUseCase
-import com.yodgorbek.newstask.domain.use_case.DetailNewsUseCase
 import com.yodgorbek.newstask.domain.utils.Constants
 import com.yodgorbek.newstask.data.internet.NewsInterface
 import com.yodgorbek.newstask.presentation.viewmodel.BBCNewsViewModel
-import com.yodgorbek.newstask.presentation.viewmodel.DetailNewsViewModel
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,7 +20,7 @@ object Modules {
 
     val viewModels = module {
         viewModel { BBCNewsViewModel(get()) }
-        viewModel { DetailNewsViewModel(get()) }
+
 
     }
 
@@ -30,7 +28,6 @@ object Modules {
 
         factory { NewsRepository(get()) }
         factory { BBCNewsResponseUseCase(get()) }
-        factory { DetailNewsUseCase(get()) }
 
         single<NewsInterface> {
             provideRetrofit(get<OkHttpClient>())

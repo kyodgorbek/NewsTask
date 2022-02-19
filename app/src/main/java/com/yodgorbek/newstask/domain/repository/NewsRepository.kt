@@ -18,26 +18,12 @@ class NewsRepository(
 suspend fun getNews() : Result<NewsResponse>{
    return try {
        val response = apiInterface.getNews()
-      response.articles.sortedWith(Comparator.comparing{
-      it.publishedAt.parseDate()
-      })
       Result.Success(response)
    } catch (ex: Exception) {
       Result.Error(ex)
    }
 }
 
-   @RequiresApi(Build.VERSION_CODES.N)
-   suspend fun getDetailNews() : Result<NewsResponse>{
-      return try {
-         val response = apiInterface.getDetailNews()
-
-
-         Result.Success(response)
-      } catch (ex: Exception) {
-         Result.Error(ex)
-      }
-   }
 
 
 }

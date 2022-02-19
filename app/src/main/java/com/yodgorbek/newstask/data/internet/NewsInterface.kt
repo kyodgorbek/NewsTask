@@ -8,7 +8,6 @@ interface NewsInterface {
 
     @GET(Constants.BBC_URL)
     suspend fun getNews(): NewsResponse
-    @GET(Constants.BBC_URL)
-    suspend fun getDetailNews(): NewsResponse
+
 
 }

@@ -10,16 +10,6 @@
         android:name="com.yodgorbek.newstask.presentation.BBCNewsFragment"
         android:label="BBCNewsFragment"
         tools:layout="@layout/bbcnews_fragment">
-        <action
-            android:id="@+id/action_bbcnewsFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.yodgorbek.newstask.presentation."
-        android:label="DetailFragment" >
-    <argument
-        android:name="article"
-        app:argType="com.yodgorbek.newstask.model.Article" />
-    </fragment>
+
 </navigation>

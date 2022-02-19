@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Comparator
 
+@RequiresApi(Build.VERSION_CODES.N)
 class BBCNewsViewModel(private val useCase: BBCNewsResponseUseCase) : ViewModel() {
 
 
@@ -33,7 +34,6 @@ init{
     private fun getNews() {
         progress.postValue(true)
         viewModelScope.launch(Dispatchers.IO) {
-
             useCase.invoke()
                 .fold({ newsResponse ->
                     newsResponse.articles.sortedWith(Comparator.comparing{
