@@ -2,10 +2,12 @@ package com.yodgorbek.newstask.di
 
 
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.yodgorbek.newstask.data.internet.NewsInterface
 import com.yodgorbek.newstask.domain.repository.NewsRepository
 import com.yodgorbek.newstask.domain.use_case.BBCNewsResponseUseCase
 import com.yodgorbek.newstask.domain.utils.Constants
-import com.yodgorbek.newstask.data.internet.NewsInterface
 import com.yodgorbek.newstask.presentation.viewmodel.BBCNewsViewModel
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -18,6 +20,7 @@ import java.util.concurrent.TimeUnit
 
 object Modules {
 
+    @RequiresApi(Build.VERSION_CODES.N)
     val viewModels = module {
         viewModel { BBCNewsViewModel(get()) }
 

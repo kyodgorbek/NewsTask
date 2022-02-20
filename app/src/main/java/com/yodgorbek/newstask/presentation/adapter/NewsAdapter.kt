@@ -1,25 +1,25 @@
 package com.yodgorbek.newstask.presentation.adapter
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.yodgorbek.newstask.databinding.NewsItemBinding
-import com.yodgorbek.newstask.databinding.NewsItemBinding.*
+import com.yodgorbek.newstask.databinding.NewsItemBinding.inflate
 import com.yodgorbek.newstask.domain.utils.parseDate
 import com.yodgorbek.newstask.domain.utils.userFormat
 import com.yodgorbek.newstask.model.Article
 
-class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter() : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
 
-    private val differCallback = object: DiffUtil.ItemCallback<Article>(){
+    private val differCallback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem == newItem
         }
@@ -29,7 +29,7 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
         }
     }
- var differ = AsyncListDiffer(this,differCallback)
+    var differ = AsyncListDiffer(this, differCallback)
     // update you data in recycler
 
 
@@ -44,7 +44,8 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     }
 
-    class NewsViewHolder(private val itemBinding: NewsItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    class NewsViewHolder(private val itemBinding: NewsItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(articles: Article) {
             itemBinding.articleDescription.text = articles.description
             itemBinding.articleTitle.text = articles.title

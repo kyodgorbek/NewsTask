@@ -9,7 +9,6 @@
         android:id="@+id/bbcNewsFragment"
         android:name="com.yodgorbek.newstask.presentation.BBCNewsFragment"
         android:label="BBCNewsFragment"
-        tools:layout="@layout/bbcnews_fragment">
-    </fragment>
+        tools:layout="@layout/bbcnews_fragment"></fragment>
 
 </navigation>

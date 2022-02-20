@@ -1,4 +1,5 @@
 package com.yodgorbek.newstask.model
+
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
@@ -12,7 +13,7 @@ data class Article(
     @SerializedName("description")
     val description: String,
     @SerializedName("publishedAt")
-    val publishedAt: String,
+    var publishedAt: String,
     @SerializedName("source")
     val source: Source,
     @SerializedName("title")
